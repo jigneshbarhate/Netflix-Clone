@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import path from "path";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.route.js";
 import movieRoutes from "./routes/movie.route.js";
@@ -12,6 +13,11 @@ import { connectDB } from "./config/db.js";
 import { protectRoute } from "./middleware/protectRoute.js";
 
 const app = express();
+
+app.use(cors({
+	origin: ENV_VARS.NODE_ENV === "development" ? "http://localhost:5173" : process.env.FRONTEND_URL,
+	credentials: true,
+}));
 
 const PORT = ENV_VARS.PORT;
 const __dirname = path.resolve();

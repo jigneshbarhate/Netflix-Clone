@@ -2,7 +2,6 @@
 
 A full-stack Netflix Clone application built using **React**, **Node.js**, **Express**, and **MongoDB**.  
 
-🔗 **Netflix-Clone Live URL:** https://netflix-clone-36lp.onrender.com/  
 🔗 **GitHub Repository:** https://github.com/jigneshbarhate/Netflix-Clone  
 
 ---
@@ -118,27 +117,34 @@ npm start
 
 ---
 
-## 🌍 Deployment Details
+## 🌍 Deployment Instructions
 
-### Backend (Render)
+### 1️⃣ Backend (Render)
+1.  Sign in to [Render](https://render.com/).
+2.  Click **New +** > **Web Service**.
+3.  Connect your GitHub repository.
+4.  Configure the service:
+    - **Name**: `netflix-clone-api`
+    - **Root Directory**: `(leave blank if using render.yaml)`
+    - **Build Command**: `npm install`
+    - **Start Command**: `node backend/server.js`
+5.  Add **Environment Variables**:
+    - `MONGO_URI`: Your MongoDB connection string.
+    - `JWT_SECRET`: A secure random string.
+    - `TMDB_API_KEY`: Your TMDB API key.
+    - `NODE_ENV`: `production`
+    - `FRONTEND_URL`: Your Vercel deployment URL (e.g., `https://netflix-clone.vercel.app`).
 
-* Express server deployed on Render
-* Environment variables configured in Render dashboard
-* Live API base URL:
-
-  ```
-  https://netflix-clone-36lp.onrender.com
-  ```
-
----
-
-## 🔗 Sample API Endpoints
-
-| Method | Endpoint         | Description        |
-| ------ | ---------------- | ------------------ |
-| POST   | `/auth/signup`   | Register user      |
-| POST   | `/auth/login`    | Login user         |
-| GET    | `/movies`        | Fetch movies       |
+### 2️⃣ Frontend (Vercel)
+1.  Sign in to [Vercel](https://vercel.com/).
+2.  Click **Add New** > **Project**.
+3.  Import your GitHub repository.
+4.  Configure the project:
+    - **Framework Preset**: `Vite`
+    - **Root Directory**: `frontend`
+5.  Add **Environment Variables**:
+    - `VITE_API_URL`: Your Render backend URL (e.g., `https://netflix-clone-api.onrender.com`).
+6.  Click **Deploy**.
 
 ---
 
