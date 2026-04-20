@@ -15,7 +15,7 @@ import { protectRoute } from "./middleware/protectRoute.js";
 const app = express();
 
 app.use(cors({
-	origin: ENV_VARS.NODE_ENV === "development" ? "http://localhost:5173" : process.env.FRONTEND_URL,
+	origin: ENV_VARS.NODE_ENV === "development" ? "http://localhost:5173" : ENV_VARS.FRONTEND_URL,
 	credentials: true,
 }));
 
